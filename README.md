@@ -1,2 +1,2 @@
 # Crud Hibernate project.
-# One to Many mapping.
+One to Many mapping.
