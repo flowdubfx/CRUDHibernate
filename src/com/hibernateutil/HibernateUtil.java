@@ -15,15 +15,12 @@ public class HibernateUtil {
 
 		try {
 			Configuration configuration = new Configuration().configure();
-
 			serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
 					.buildServiceRegistry();
-
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public static SessionFactory getSessionFactory() {

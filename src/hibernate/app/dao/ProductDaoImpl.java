@@ -68,15 +68,15 @@ public class ProductDaoImpl implements ProductDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> getProductsPerCategory(Category category) {	
+	public List<Product> getProductsPerCategory(Category category) {
 		beginSession();
-		Criteria criteria = session.createCriteria(Product.class,"product");
+		Criteria criteria = session.createCriteria(Product.class, "product");
 		criteria.createAlias("product.category", "category");
-		criteria.add(Restrictions.eq("category.id", category.getId()));	
+		criteria.add(Restrictions.eq("category.id", category.getId()));
 		criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
 		List<Product> products = criteria.list();
 		closeSession();
-		return products;		
+		return products;
 	}
 
 }
