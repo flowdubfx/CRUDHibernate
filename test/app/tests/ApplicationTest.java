@@ -14,36 +14,35 @@ import hibernate.app.service.CategoryService;
 import hibernate.app.service.ProductService;
 
 public class ApplicationTest {
-	
+
 	private ProductService productService = new ProductService();
 	private CategoryService categoryService = new CategoryService();
-	
+
 	@Before
-	public void productCreation(){
+	public void productCreation() {
 		Category category = categoryService.getOne(2);
 		Product product = new Product("Acer", category);
 		productService.create(product);
 	}
-	
+
 	@Test
-	public void productsInDatabase() {							
+	public void productsInDatabase() {
 		List<Product> products = productService.getProducts();
 		assertEquals(6, products.size());
 	}
-	
+
 	@Test
-	public void getProduct(){		
+	public void getProduct() {
 		Product product = productService.getOne(1);
 		assertNotNull(product);
 	}
-	
+
 	@Test
-	public void getProductsInCategory(){
-		
-		Category category = categoryService.getOne(2);		
-		List<Product> products = productService.getProductsPerCategory(category);		
+	public void getProductsInCategory() {
+
+		Category category = categoryService.getOne(2);
+		List<Product> products = productService.getProductsPerCategory(category);
 		assertEquals(2, products.size());
 	}
-	
 
 }
