@@ -18,5 +18,7 @@ public interface ProductDao {
 	void delete(int id);
 
 	List<Product> getProductsPerCategory(Category category);
+	
+	Long numberOfProducts();
 
 }

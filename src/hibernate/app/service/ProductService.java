@@ -38,4 +38,8 @@ public class ProductService {
 	public void delete(int id) {
 		dao.delete(id);
 	}
+
+	public Long numberOfProducts() {
+		return dao.numberOfProducts();
+	}
 }

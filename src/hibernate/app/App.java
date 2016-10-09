@@ -1,10 +1,15 @@
 package hibernate.app;
 
+import org.hibernate.Session;
+
+import com.hibernateutil.HibernateUtil;
+
 public class App {
 
 	public static void main(String[] args) {
 
-		// Tested via JUnit
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.close();
 	}
 
 }
